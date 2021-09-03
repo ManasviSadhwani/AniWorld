@@ -1,0 +1,85 @@
+
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<main class="contact-us">
+    <div class="banner">
+      <img src="{% static './assets/images/about.jpeg' %}" alt="" class="img-fluid w-100">
+      <h1 class="text-center">
+        About Us
+      </h1>
+    </div>
+    <section class="container mt-5 mb-5">
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <img src="{% static './assets/images/ation.jpeg' %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-8 animate__animated animate__fadeInRight">
+          <h2 class="text-center">Adoption</h2>
+          <p> India alone is home to an estimated 30 million street dogs and has the world's highest
+             rate of human deaths from rabies. The biggest reason for the increasing population of stray
+              dogs is open garbage. The only source of food for street dogs is garbage and their shelter
+               is street.Due to lack to food, shelter, ill-treatments a lot of street animals die each year.
+                We are taking the initiative to conduct adoption camps in association with some NGOs. 
+                Along with this we are providing an online mode of adopting a pet to make things easier for you.
+             <br> We request you to please adopt a pet instead of buying one.
+          </p>
+        </div>
+      </div>
+      <div class="row mt-5">
+
+        <div class="col-md-8  animate__animated animate__fadeInLeft  animate__delay-1s">
+          <h2 class="text-center">Caretakers</h2>
+          <p>30% of people don't tend to have a pet at their home because a pet cannot be left alone at
+             home for days while the owner is out of station. Some people faces the issues of vaccination
+              of pet and regular health care. 
+            We are here to help you by being a medium of interaction between you and a caretaker, who would
+             love and take care of your pet just like you do.
+          </p>
+        </div>
+
+        
+        <div class="col-md-4">
+          <img src="{% static './assets/images/ct.jpeg' %}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </section>
+    <section class="container mt-5 mb-5">
+      <div class="row mt-5">
+        <div class="col-md-4">
+          <img src="{% static './assets/images/ng.jpeg' %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-8 animate__animated animate__fadeInRight">
+          <h2 class="text-center">NGOs</h2>
+          <p>Some people adopt Street animals ants some people provide regular foods to the street animals
+             in their areas. But it is seen that the cruelty against Street animals is rapidly growing in
+              the hearts of human beings. These animals need to be saved from ill treatment and along with 
+              food they require some regular care for living.
+            We'll help you to contact NGOs of the nearer areas and help the stray animals.
+          </p>
+        </div>
+      </div>
+      <div class="row mt-5">
+
+        <div class="col-md-8  animate__animated animate__fadeInLeft  animate__delay-1s">
+          <h2 class="text-center">Veterinarians</h2>
+          <p>Proper healthcare services are not provided for the the animals in every area. A lot of owners
+             don't vaccinate their pets because of unavailability of of healthcare organisations and 
+             veterinary doctors why some of them delay their pets regular check up and vaccination by
+              some days because of time conflicts. 
+            We are here to help you meet our vets who believe a healthy animal is the happy animal
+          </p>
+        </div>
+
+        
+        <div class="col-md-4">
+          <img src="{% static './assets/images/doc.jpeg' %}" alt="" class="img-fluid">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+{% endblock %}

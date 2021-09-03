@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<main class="searchpage">
+    <div class="banner">
+      <img src="{% static './assets/images/about.jpeg' %}" alt="" class="img-fluid w-100">
+      <h1 class="text-center">
+        Search Result
+      </h1>
+    </div>
+
+    <section class="searchbox container mt-5 p-3 bg-accent">
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <select id="inputState" class="form-control">
+              <option selected disabled hidden>City</option>
+              <option>...</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <select id="inputState" class="form-control">
+              <option selected disabled hidden>Camera Type</option>
+              <option>Value 1</option>
+              <option>Value 2</option>
+              <option>Value 3</option>
+              <option>Value 4</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <select class="form-control">
+              <option selected disabled hidden>Category</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+
+      </form>
+      <div class="text-center">
+
+        <button class="btn btn-light">Search</button>
+      </div>
+    </section>
+
+
+
+    <section class="search-results container mt-3 grid">
+
+
+
+      <!-- person 1 -->
+      {% for vt in vets %}
+
+        <!-- person 1 -->
+        <div class="card border-0 text-center">
+          <div>
+            <a href="{% url 'vets_detail' vt.id %}">
+              <img src="{{ vt.photo.url }}" class="card-img-top" alt="adoption">
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Vet for your pet</h5>
+            <p class="card-text">{{vt.clinic}}</p>
+            <div class="card-body">
+              <button class="btn btn-accent btn-block"> Name: {{vt.name}} </button>
+              <button class="btn btn-accent btn-block"> City: {{vt.city}} </button>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+
+
+
+
+    </section>
+  </main>
+
+{% endblock %}

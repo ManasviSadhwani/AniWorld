@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+
+<main class="home">
+    <div class="top" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+      
+      {% for slide in sliders %}
+
+      <div class="top-banner">
+          <img src="{{ slide.photo.url }}" alt="" class="img-fluid w-100">
+        <div class="top-container d-flex flex-column pl-5">
+          <h1 style="color:black;" >
+            {{ slide.headline }} 
+          </h1>
+          <p style="color:black;">
+            {{ slide.subtitle }}
+          </p>
+          <div> 
+            <a href="{% url 'about' %}">
+              <button class="btn btn-accent pl-3 pr-3 text-capitalize font-weight-bold">
+                {{ slide.button_text }}
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      {% endfor %}
+
+    </div>
+
+
+    <section class="container d-flex justify-content-center align-items-center mt-4">
+      <form method="GET" action="{% url 'search' %}" class="row text-center">
+        <div class="col-md-auto">
+          <div class="form-group mb-2">
+            <input name="keyword" class="form-control" placeholder="Enter Keywords">
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-accent ml-2 mb-2 pl-5 pr-5">Search</button>
+
+          </div>
+        </div>
+      </form>
+    </section>
+
+    
+    
+
+    <section class="container mt-5 mb-5">
+      <h3 class="text-center">Life is better with a pet. Adopt!</h3>
+      <p class="pt-2 pb-3 text-center">There's no better option than adoption. Adopt a new best friend today.</p>
+
+      <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
+
+       
+        {% for adopt in adoption %}
+        <div class="card border-0 text-center  ml-3 mr-3">
+          <a href="{% url 'adoption_detail' adopt.id %}">
+            <img src="{{ adopt.photo.url }}" class="card-img-top" alt="team-member">
+          </a> 
+          <div class="card-body">
+            <h5 class="card-title"> {{adopt.animal}} for adoption </h5>
+            <button class="btn btn-accent btn-block"> Breed: {{adopt.breed}} </button>
+            <button class="btn btn-accent btn-block"> City: {{adopt.city}} </button>
+          </div>
+        </div>
+        {% endfor %}
+       
+      </div>
+      
+    </section>
+
+    <section class="container mt-5 mb-5">
+      <h3 class="text-center">Caretakers for your pets</h3>
+      <p class="pt-2 pb-3 text-center">We care for your pet. We take care of them just the way you do.</p>
+
+      
+        <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
+        {% for ct in caretaker %}
+
+        <!-- person 1 -->
+        <div class="card border-0 text-center  ml-3 mr-3">
+          <a href="{% url 'caretaker_detail' ct.id %}">
+            <img src="{{ ct.photo.url }}" class="card-img-top" alt="team-member">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title"> Caretaker for {{ct.preferred_animal}}  </h5>
+            <button class="btn btn-accent btn-block"> Name: {{ct.name}} </button>
+            <button class="btn btn-accent btn-block"> City: {{ct.city}} </button>
+          </div>
+        </div>
+        
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+    <section class="container mt-5 mb-5">
+      <h3 class="text-center">NGOs working for Animal Welfare</h3>
+      <p class="pt-2 pb-3 text-center">We ask for Animal care NGOs for stray animals</p>
+
+      <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'> 
+
+        {% for ng in ngo %}
+
+        <!-- person 1 -->
+        <div class="card border-0 text-center  ml-3 mr-3">
+          <a href="{% url 'ngo_detail' ng.id %}">
+            <img src="{{ ng.photo.url }}" class="card-img-top" alt="team-member">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title"> {{ng.name}} </h5>
+            <button class="btn btn-accent btn-block"> Mission: {{ng.mission}} </button>
+            <button class="btn btn-accent btn-block"> City: {{ng.city}} </button>
+          </div>
+        </div>
+        
+        
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+    <section class="container mt-5 mb-5">
+      <h3 class="text-center">Healthy pets are happy pets</h3>
+      <p class="pt-2 pb-3 text-center">Discover what our veterinarians can do for you and your pet.</p>
+
+      <div class="team slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1}'>
+
+        {% for vt in vets %}
+
+        <!-- person 1 -->
+        <div class="card border-0 text-center">
+          <div>
+            <a href="{% url 'vets_detail' vt.id %}">
+              <img src="{{ vt.photo.url }}" class="card-img-top" alt="adoption">
+            </a>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Vet for your pet</h5>
+            <p class="card-text">{{vt.clinic}}</p>
+            <div class="card-body">
+              <button class="btn btn-accent btn-block"> Name: {{vt.name}} </button>
+              <button class="btn btn-accent btn-block"> City: {{vt.city}} </button>
+            </div>
+          </div>
+        </div>
+        
+        {% endfor %}
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+{% endblock %} 
